@@ -7,16 +7,16 @@ headers = {
     "accept": "audio/mpeg"
 }
 
-
 def text_to_voice(text, voice):
     url = "https://api.elevenlabs.io/v1/text-to-speech/{}".format(voice)
     payload = {
-      "text": text,
+      "text": text.replace('\n', ''),
       "voice_settings": {
         "stability": 0,
         "similarity_boost": 0
       }
     }
+    import pdb;pdb.set_trace()
     response = requests.post(url=url, json=payload, headers=headers)
     return response.content
 
