@@ -16,7 +16,6 @@ def text_to_voice(text, voice):
         "similarity_boost": 0
       }
     }
-    import pdb;pdb.set_trace()
     response = requests.post(url=url, json=payload, headers=headers)
     return response.content
 
