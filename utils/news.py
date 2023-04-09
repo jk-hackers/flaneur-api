@@ -26,9 +26,6 @@ def fetch_news(name):
             "q": name,
             "tbm": "nws"
         })
-    import pdb;pdb.set_trace()
     news =  search.get_dict()["news_results"]
-    import pdb;pdb.set_trace()
-
     cache.set(key,  json.dumps(news))
     return news
