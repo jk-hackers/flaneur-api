@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import requests
+from datetime import date
 import os
 import json
 from serpapi import GoogleSearch
@@ -14,7 +14,7 @@ headers = {
 
 def fetch_news(name):
     # 获取 link
-    key = "news:{}:v1".format(name)
+    key = "news:{}:{}:v1".format(name, date.today())
     data = cache.get(key)
     if data:
         return json.loads(data)
