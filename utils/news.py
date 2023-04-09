@@ -13,12 +13,6 @@ headers = {
 
 
 def fetch_news(name):
-    # 获取 link
-    key = "news:{}:{}:v1".format(name, date.today())
-    data = cache.get(key)
-    if data:
-        return json.loads(data)
-
     # https://serpapi.com/users/welcome
     search = GoogleSearch({
             "api_key": os.getenv('SERP_API'),
@@ -27,5 +21,4 @@ def fetch_news(name):
             "tbm": "nws"
         })
     news =  search.get_dict()["news_results"]
-    cache.set(key,  json.dumps(news))
     return news
