@@ -12,5 +12,8 @@ def setup_routers(api: Api):
   api.add_resource(TextToVoice, "/voices")
 
   api.add_resource(LookupLocation, "/lookup")
+  
   api.add_resource(Weather, "/weather")
+
+  api.add_resource(News, "/news")
 
